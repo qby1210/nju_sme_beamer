@@ -1,0 +1,29 @@
+# LaTeX 编译中间文件
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+main.pdf
+build/
+build-output.txt
+
+# 编辑器和操作系统缓存
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+
+# sample.pdf、preview.png 和 njulogo.pdf 是公开示例或模板资源。

@@ -1,0 +1,87 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% 原始主题：保留紫色、校院标识、背景、页眉与页脚。
+\usepackage{nju}
+\usepackage[UTF8,fontset=none]{ctex}
+\input{fonts.tex}
+\usefonttheme{professionalfonts}
+\usefonttheme[onlymath]{serif}
+\setbeamerfont{title}{family=\heiti}
+\setbeamerfont{frametitle}{family=\heiti}
+\setbeamerfont{section title}{family=\heiti}
+\setbeamerfont{normal text}{family=\songti}
+
+\usepackage{amsmath,amsfonts,amssymb,bm}
+\usepackage{graphicx,hyperref,url}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{booktabs}
+\setbeamertemplate{bibliography item}[text]
+\lstset{
+  language=C++,
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily\color{black}\footnotesize,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{purple},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  frame=single,
+  breaklines=true,
+  tabsize=4,
+  columns=fullflexible
+}
+\beamertemplateballitem
+
+% 仅调淡背景水印。取值 0--1，越小越淡；不影响页眉校院标识。
+\newcommand{\njusmeBackgroundOpacity}{0.30}
+\setbeamertemplate{background}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west,inner sep=0pt,opacity=\njusmeBackgroundOpacity]
+      at (current page.north west) {\pgfuseimage{bg}};
+  \end{tikzpicture}%
+}
+
+% ===== 在这里填写自己的汇报信息 =====
+% 方括号中的短名称用于页脚。
+\title[汇报标题]{汇报标题}
+\author[姓名]{\texorpdfstring{%
+  汇报人：姓名
+  \vspace{0.2cm}\\
+  指导老师：姓名}{姓名}}
+\date[年/月/日]{年/月/日}
+
+% 标题与作者的 PDF 属性由 Beamer 根据上面的信息自动生成。
+\hypersetup{
+  pdfsubject={南京大学工程管理学院 Beamer 模板示例},
+  pdfkeywords={NJU, SME, Beamer, LaTeX},
+  pdfcreator={XeLaTeX with Beamer}
+}
+
+\begin{document}
+
+% 示例 1：封面
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% 示例 2：正文；章节名称会显示在页眉导航中。
+\section{示例}
+\begin{frame}{正文示例}
+  \begin{itemize}
+    \item 在这里介绍汇报背景或研究问题。
+    \vspace{0.2cm}
+    \item 使用 \textbf{加粗文字} 或 \alert{强调文字} 突出关键内容。
+  \end{itemize}
+
+  \vspace{0.3cm}
+  \begin{block}{公式示例}
+    \[
+      f(x) = x^2, \qquad f'(x) = 2x.
+    \]
+  \end{block}
+\end{frame}
+
+\end{document}

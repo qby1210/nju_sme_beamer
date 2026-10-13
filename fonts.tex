@@ -1,0 +1,51 @@
+% 延续原模板的字体选择，并为没有 Windows 字体的环境提供回退。
+% Fandol / TeX Gyre / Latin Modern 字体随完整 TeX Live 提供。
+
+\IfFontExistsTF{Times New Roman}{%
+  \setmainfont{Times New Roman}
+  \setsansfont{Times New Roman}
+}{%
+  \setmainfont{TeX Gyre Termes}
+  \setsansfont{TeX Gyre Termes}
+}
+\IfFontExistsTF{Consolas}{%
+  \setmonofont{Consolas}
+}{%
+  \setmonofont{Latin Modern Mono}
+}
+
+\IfFontExistsTF{Source Han Serif SC}{%
+  \def\njusmeSerif{Source Han Serif SC}
+}{%
+  \IfFontExistsTF{SimSun}{%
+    \def\njusmeSerif{SimSun}
+  }{%
+    \def\njusmeSerif{FandolSong-Regular}
+  }
+}
+\IfFontExistsTF{Source Han Sans SC}{%
+  \def\njusmeSans{Source Han Sans SC}
+}{%
+  \IfFontExistsTF{SimHei}{%
+    \def\njusmeSans{SimHei}
+  }{%
+    \def\njusmeSans{FandolHei-Regular}
+  }
+}
+\IfFontExistsTF{Source Han Serif SC}{%
+  \def\njusmeMono{Source Han Serif SC}
+}{%
+  \IfFontExistsTF{FangSong}{%
+    \def\njusmeMono{FangSong}
+  }{%
+    \def\njusmeMono{FandolFang-Regular}
+  }
+}
+
+\setCJKmainfont[AutoFakeBold=2]{\njusmeSerif}
+\setCJKsansfont[AutoFakeBold=2]{\njusmeSans}
+\setCJKmonofont[AutoFakeBold=2]{\njusmeMono}
+\setCJKfamilyfont{zhsong}[AutoFakeBold=2]{\njusmeSerif}
+\setCJKfamilyfont{zhhei}[AutoFakeBold=2]{\njusmeSans}
+\providecommand{\songti}{\CJKfamily{zhsong}}
+\providecommand{\heiti}{\CJKfamily{zhhei}}
